@@ -17,3 +17,14 @@ bash setup.sh
 ```
 
 The script will download and unpack Image Builder for `mt76x8` architecture.
+
+# Building firmware
+To build a new firmware file, simply run:
+```
+bash build-firmware.sh
+```
+
+If there's no error during compilation, the firmware files will be located at ``
+```
+openwrt-imagebuilder-23.05.0-ramips-mt76x8.Linux-x86_64/bin/targets/ramips/mt76x8/openwrt-23.05.0-ramips-mt76x8-xiaomi_mi-router-4c-squashfs-sysupgrade.bin
+```
