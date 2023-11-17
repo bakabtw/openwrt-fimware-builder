@@ -7,10 +7,12 @@ imagebuilder_url="https://downloads.openwrt.org/releases/$openwrt_version/target
 imagebuilder_sha256sum_url="https://downloads.openwrt.org/releases/$openwrt_version/targets/ramips/mt76x8/sha256sums"
 
 if [ ! -d "./$imagebuilder_dir/" ]; then
+    # Downloading Image Builder
     wget -c $imagebuilder_url || (echo "ERROR - Couldn't download Image Builder ($imagebuilder_url)" && exit 1)
     wget -c $imagebuilder_sha256sum_url || (echo "ERROR - Couldn't download sha256sums ($imagebuilder_url)" && exit 1)
     echo "Download complete"
 
+    # Unpacking Image Builder
     echo "Unpacking files..."
     tar -xJf $imagebuilder_file || (echo "ERROR - Couldn't unpack the archive ($imagebuilder_file)" && exit 1)
     echo "Image Builder was sucessfully installed."
