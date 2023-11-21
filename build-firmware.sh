@@ -4,7 +4,8 @@ openwrt_version="23.05.0"
 imagebuilder_dir="openwrt-imagebuilder-$openwrt_version-ramips-mt76x8.Linux-x86_64"
 
 PROFILE="xiaomi_mi-router-4c"
-PACKAGES="bash wget luci coreutils-sha1sum"
+PACKAGES="bash wget coreutils-sha1sum oui-ui-core"
+PACKAGES="$PACKAGES oui-app-acl oui-app-backup oui-app-demo oui-app-dhcp-lease oui-app-home oui-app-layout oui-app-login oui-app-stations oui-app-system oui-app-uprade oui-app-user"
 FILES="files"
 DISABLED_SERVICES=""
 
