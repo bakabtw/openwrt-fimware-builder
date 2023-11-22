@@ -5,7 +5,7 @@ imagebuilder_dir="openwrt-imagebuilder-$openwrt_version-ramips-mt76x8.Linux-x86_
 
 PROFILE="xiaomi_mi-router-4c"
 # Base packages
-PACKAGES="bash wget coreutils-sha1sum px5g-standalone openssl-util"
+PACKAGES="bash wget coreutils-sha1sum openssl-util"
 # Web GUI packages
 PACKAGES="$PACKAGES oui-ui-core oui-app-acl oui-app-backup oui-app-demo oui-app-dhcp-lease oui-app-home oui-app-layout oui-app-login oui-app-stations oui-app-system oui-app-upgrade oui-app-user"
 FILES="files"
