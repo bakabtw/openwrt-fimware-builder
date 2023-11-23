@@ -1,0 +1,20 @@
+#!/bin/bash
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+# TODO: Add a check that WiFi is not set up
+if [ ! -f /overlay/init.success ]; then
+    # Generating ESSID
+    mac=$(tr -d ':' < /sys/class/net/eth0/address)
+    suffix=${mac: -8}
+    essid="OpenWRT_${suffix}"
+
+    # Enabling WiFi
+    uci set wireless.radio0.disabled="0"
+    uci set wirelss.radio0.essid="$essid"
+
+    # Creating first init file
+    touch /overlay/init.success
+fi
+
+exit 0
