@@ -33,3 +33,5 @@ openwrt-imagebuilder-23.05.0-ramips-mt76x8.Linux-x86_64/bin/targets/ramips/mt76x
 - Add config for `ota-updater`
 - Add support for building dev images (generic arch)
 - Code cleanup
+- Add pipeline for `luci-theme-argon`
+- Add mirrors for repo
