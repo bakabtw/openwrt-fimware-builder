@@ -28,3 +28,8 @@ If there's no error during compilation, the firmware files will be located at ``
 ```
 openwrt-imagebuilder-23.05.0-ramips-mt76x8.Linux-x86_64/bin/targets/ramips/mt76x8/openwrt-23.05.0-ramips-mt76x8-xiaomi_mi-router-4c-squashfs-sysupgrade.bin
 ```
+
+# TODO
+- Add config for `ota-updater`
+- Add support for building dev images (generic arch)
+- Code cleanup
