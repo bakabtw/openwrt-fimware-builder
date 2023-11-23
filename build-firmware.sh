@@ -7,7 +7,7 @@ PROFILE="xiaomi_mi-router-4c"
 # Base packages
 PACKAGES="bash wget coreutils-sha1sum"
 # Web GUI packages
-PACKAGES="$PACKAGES luci luci-theme-argon"
+PACKAGES="$PACKAGES luci luci-compat luci-lib-ipkg luci-theme-argon"
 FILES="files"
 DISABLED_SERVICES=""
 
