@@ -32,12 +32,11 @@ if [ -d "$imagebuilder_dir/files/" ]; then
 fi
 
 # Creating file structure
-mkdir -p "$imagebuilder_dir/files/etc/crontabs/"
 mkdir -p "$imagebuilder_dir/files/usr/bin/"
+cp -R "files/" "$imagebuilder_dir/"
 
 # Copying files
 cp "$OTA_UPDATER_REPO_DIR/ota-updater.sh" "$imagebuilder_dir/files/usr/bin/ota-updater.sh"
-cp "$OTA_UPDATER_REPO_DIR/crontabs/ota-updater" "$imagebuilder_dir/files/etc/crontabs/ota-updater"
 
 # Changing permissions
 chmod 755 "$imagebuilder_dir/files/usr/bin/ota-updater.sh"
