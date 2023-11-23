@@ -5,7 +5,7 @@
 wifi_interface="radio0"
 
 # TODO: Add a check that WiFi is not set up
-if [ ! -f /overlay/init.success ]; then
+if [ ! -f /overlay/init.success ] && [ "$(uci get wireless.$wifi_interface.disabled)" == 1 ]; then
     # Generating ESSID
     mac=$(tr -d ':' < /sys/class/net/$wifi_interface/address)
     suffix=${mac: -8}
