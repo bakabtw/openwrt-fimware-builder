@@ -4,7 +4,6 @@
 
 wifi_interface="radio0"
 
-# TODO: Add a check that WiFi is not set up
 if [ ! -f /overlay/init.success ] && [ "$(uci get wireless.$wifi_interface.disabled)" == 1 ]; then
     # Generating ESSID
     mac=$(tr -d ':' < /sys/class/net/$wifi_interface/address)
@@ -13,7 +12,7 @@ if [ ! -f /overlay/init.success ] && [ "$(uci get wireless.$wifi_interface.disab
 
     # Enabling WiFi
     uci set wireless.$wifi_interface.disabled="0"
-    uci set wirelss.$wifi_interface.essid="$essid"
+    uci set wireless.$wifi_interface.essid="$essid"
     uci commit
     wifi reload
 
