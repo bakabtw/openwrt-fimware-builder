@@ -9,11 +9,11 @@ if [ ! -f /overlay/init.success ] && [ "$(uci get wireless.$wifi_interface.disab
     # Generating ESSID
     mac=$(tr -d ':' < /sys/class/net/$hardware_interface/address)
     suffix=${mac: -8}
-    essid="OpenWRT_${suffix}"
+    ssid="OpenWRT_${suffix}"
 
     # Enabling WiFi
     uci set wireless.$wifi_interface.disabled="0"
-    uci set wireless.$wifi_interface.essid="$essid"
+    uci set wireless.default_$wifi_interface.ssid="$ssid"
     uci commit
     wifi reload
 
