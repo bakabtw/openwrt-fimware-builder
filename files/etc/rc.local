@@ -3,10 +3,11 @@
 # the system init finished. By default this file does nothing.
 
 wifi_interface="radio0"
+hardware_interface="phy0-ap0"
 
 if [ ! -f /overlay/init.success ] && [ "$(uci get wireless.$wifi_interface.disabled)" == 1 ]; then
     # Generating ESSID
-    mac=$(tr -d ':' < /sys/class/net/$wifi_interface/address)
+    mac=$(tr -d ':' < /sys/class/net/$hardware_interface/address)
     suffix=${mac: -8}
     essid="OpenWRT_${suffix}"
 
