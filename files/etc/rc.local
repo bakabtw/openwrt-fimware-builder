@@ -8,7 +8,7 @@ hardware_interface="eth0"
 if [ ! -f /overlay/init.success ] && [ "$(uci get wireless.$wifi_interface.disabled)" == 1 ]; then
     # Generating ESSID
     mac=$(tr -d ':' < /sys/class/net/$hardware_interface/address)
-    suffix=${mac: -8}
+    suffix=${mac: -4}
     ssid="OpenWRT_${suffix}"
 
     # Enabling WiFi
