@@ -18,6 +18,13 @@ if [ ! -f /overlay/init.success ]; then
     uci commit
     wifi reload
 
+    # Setting up root password
+    passwd=${mac: -8}
+    /bin/passwd root <<EOP
+$passwd
+$passwd
+EOP
+
     # Creating first init file
     touch /overlay/init.success
 fi
