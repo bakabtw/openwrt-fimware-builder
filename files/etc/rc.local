@@ -8,18 +8,23 @@ hardware_interface="eth0"
 # First init pipeline
 if [ ! -f /overlay/init.success ]; then
     # Generating ESSID
-    mac=$(tr -d ':' < /sys/class/net/$hardware_interface/address)
+    # shellcheck disable=SC2018
+    # shellcheck disable=SC2019
+    mac=$(tr -d ':' < /sys/class/net/$hardware_interface/address | tr 'a-z' 'A-Z')
     suffix=${mac: -4}
     ssid="Xiaomi_${suffix}"
+    passwd=${mac: -8}
 
     # Enabling WiFi
     uci set wireless.$wifi_interface.disabled="0"
     uci set wireless.default_$wifi_interface.ssid="$ssid"
+    uci set wireless.$wifi_interface.cell_density="0"
+    uci set wireless.default_$wifi_interface.encryption="psk2"
+    uci set wireless.default_$wifi_interface.key="$passwd"
     uci commit
     wifi reload
 
     # Setting up root password
-    passwd=${mac: -8}
     /bin/passwd root <<EOP
 $passwd
 $passwd
